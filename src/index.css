@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@theme {
+  --color-orange: #E84C0A;
+  --color-orange-light: #F7A01D;
+  --color-orange-dark: #C93B00;
+  --color-orange-pale: #FFF3EB;
+  --color-navy: #0B132B;
+  --color-navy-light: #1C2541;
+  --color-blue: #1E7EAD;
+  --color-blue-light: #4BBFE8;
+  --color-green: #10B981;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #FAFAFA;
+    color: #0F172A;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: rgba(232, 76, 10, 0.2); color: #E84C0A; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f8fafc; }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E84C0A;
+  }
+}
+
+@layer components {
+  /* ── Ultra-Glass (Frosted Glassmorphism) ── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.07), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  }
+
+  .glass-card-dark {
+    background: rgba(11, 19, 43, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-pill {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 9999px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-pill-dark {
+    background: rgba(11, 19, 43, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+    color: white;
+  }
+
+  /* ── Vibrant Brand Orange Buttons ── */
+  .btn-orange, .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #E84C0A 0%, #F7A01D 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(232, 76, 10, 0.38);
+    text-decoration: none;
+  }
+  .btn-orange:hover, .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232, 76, 10, 0.5);
+    background: linear-gradient(135deg, #F05514 0%, #FAAE34 100%);
+  }
+  .btn-orange:active, .btn-primary:active { transform: translateY(0); }
+
+  /* Keep btn-lime as alias mapped to vibrant orange */
+  .btn-lime {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #E84C0A 0%, #F7A01D 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(232, 76, 10, 0.38);
+    text-decoration: none;
+  }
+  .btn-lime:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232, 76, 10, 0.5);
+    background: linear-gradient(135deg, #F05514 0%, #FAAE34 100%);
+  }
+
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    color: #0B132B;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+  .btn-glass:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #0B132B;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-circle:hover {
+    background: #E84C0A;
+    border-color: #E84C0A;
+    color: white;
+    transform: scale(1.06);
+  }
+
+  .btn-circle-dark {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0B132B;
+    color: white;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-circle-dark:hover {
+    background: #E84C0A;
+    color: white;
+    transform: scale(1.06);
+  }
+
+  /* ── Pill Tags ── */
+  .pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 16px;
+    border-radius: 9999px;
+    background: #FFF3EB;
+    border: 1.5px solid rgba(232, 76, 10, 0.25);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E84C0A;
+  }
+
+  /* ── Interactive Card ── */
+  .modern-card {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .modern-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px -10px rgba(232, 76, 10, 0.12);
+    border-color: #FDBA74;
+  }
+
+  /* ── Typography & Gradients ── */
+  .heading-hero {
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .heading-section {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .gradient-text-orange, .gradient-text {
+    background: linear-gradient(135deg, #E84C0A, #F7A01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
